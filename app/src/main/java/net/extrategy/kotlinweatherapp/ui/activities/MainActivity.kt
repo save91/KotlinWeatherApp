@@ -5,14 +5,12 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import net.extrategy.kotlinweatherapp.R
-import net.extrategy.kotlinweatherapp.domain.datasource.Request
 import net.extrategy.kotlinweatherapp.ui.adapters.ForecastListAdapter
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.longToast
 import org.jetbrains.anko.uiThread
 
 class MainActivity : AppCompatActivity() {
-    private val url = "http://app.e-xtrategy.net/demo/weather/today.json"
     private val items = listOf(
             "Lunedì - Pioggia - min 15 - max 34",
             "Martedì - Pioggia - min 15 - max 34",
@@ -30,10 +28,6 @@ class MainActivity : AppCompatActivity() {
         val forecastList = findViewById(R.id.forecast_list) as RecyclerView
         forecastList.layoutManager = LinearLayoutManager(this)
         forecastList.adapter = ForecastListAdapter(items)
-        doAsync {
-            Request(url).run()
-            uiThread { longToast("Request performed") }
-        }
 
     }
 }
