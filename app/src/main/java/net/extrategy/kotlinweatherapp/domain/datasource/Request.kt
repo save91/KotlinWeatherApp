@@ -1,4 +1,4 @@
-package net.extrategy.kotlinweatherapp
+package net.extrategy.kotlinweatherapp.domain.datasource
 
 import android.util.Log
 import java.net.URL

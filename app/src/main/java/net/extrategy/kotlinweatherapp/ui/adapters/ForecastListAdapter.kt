@@ -1,4 +1,4 @@
-package net.extrategy.kotlinweatherapp
+package net.extrategy.kotlinweatherapp.ui.adapters
 
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup

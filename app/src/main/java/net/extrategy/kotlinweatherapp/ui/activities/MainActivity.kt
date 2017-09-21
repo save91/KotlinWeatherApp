@@ -1,10 +1,12 @@
-package net.extrategy.kotlinweatherapp
+package net.extrategy.kotlinweatherapp.ui.activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_main.*
+import net.extrategy.kotlinweatherapp.R
+import net.extrategy.kotlinweatherapp.domain.datasource.Request
+import net.extrategy.kotlinweatherapp.ui.adapters.ForecastListAdapter
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.longToast
 import org.jetbrains.anko.uiThread
