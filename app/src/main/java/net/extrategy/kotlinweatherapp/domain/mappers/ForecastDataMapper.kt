@@ -17,9 +17,8 @@ class ForecastDataMapper {
     }
 
     private fun convertForecastListToDomain(list: List<Forecast>): List<ModelForecast> {
-        return list.mapIndexed { i, forecast ->
-            val dt = Calendar.getInstance().timeInMillis + TimeUnit.DAYS.toMillis(i.toLong())
-            convertForecastItemToDomain(forecast.copy(dt = dt))
+        return list.map{ forecast ->
+            convertForecastItemToDomain(forecast)
         }
     }
 
