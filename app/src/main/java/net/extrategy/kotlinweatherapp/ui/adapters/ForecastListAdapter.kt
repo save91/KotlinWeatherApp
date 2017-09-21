@@ -3,18 +3,21 @@ package net.extrategy.kotlinweatherapp.ui.adapters
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import android.widget.TextView
+import net.extrategy.kotlinweatherapp.domain.model.ForecastList
 
-class ForecastListAdapter(private val items: List<String>) :
+class ForecastListAdapter(private val forecast: ForecastList) :
         RecyclerView.Adapter<ForecastListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
             ViewHolder(TextView(parent.context))
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.textView.text = items[position]
+        with(forecast.dailyForecast[position]) {
+            holder.textView.text = "$date - $description - $low/$high"
+        }
     }
 
-    override fun getItemCount(): Int = items.size
+    override fun getItemCount(): Int = forecast.dailyForecast.size
 
     class ViewHolder(val textView: TextView) : RecyclerView.ViewHolder(textView)
 }
