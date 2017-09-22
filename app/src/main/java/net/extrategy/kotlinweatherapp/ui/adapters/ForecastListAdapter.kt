@@ -12,12 +12,12 @@ class ForecastListAdapter(private val forecast: ForecastList) :
             ViewHolder(TextView(parent.context))
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        with(forecast.dailyForecast[position]) {
+        with(forecast[position]) {
             holder.textView.text = "$date - $description - $low/$high"
         }
     }
 
-    override fun getItemCount(): Int = forecast.dailyForecast.size
+    override fun getItemCount(): Int = forecast.size
 
     class ViewHolder(val textView: TextView) : RecyclerView.ViewHolder(textView)
 }
