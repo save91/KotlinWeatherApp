@@ -1,21 +1,20 @@
 package net.extrategy.kotlinweatherapp.data.db
 
+import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import net.extrategy.kotlinweatherapp.App
 import org.jetbrains.anko.db.*
 
-class ForecastDbHelper() : ManagedSQLiteOpenHelper(App.instance,
+class ForecastDbHelper(ctx: Context = App.instance) : ManagedSQLiteOpenHelper(App.instance,
         ForecastDbHelper.DB_NAME, null, ForecastDbHelper.DB_VERSION) {
 
     companion object {
         val DB_NAME = "forecast.db"
         val DB_VERSION = 1
-        val instance by lazy {
-            ForecastDbHelper()
-        }
+        val instance by lazy { ForecastDbHelper() }
     }
 
-    override fun onConfigure(db: SQLiteDatabase) {
+    override fun onCreate(db: SQLiteDatabase) {
         db.createTable(
                 CityForecastTable.NAME,
                 true,
